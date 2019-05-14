@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DeSprintiFi</string>
+    <string name="action_settings">Settings</string>
+    <string name="button_now_text">DeSprintiFi Now</string>
+    <string name="textView_text">DeSprintiFi</string>
+    <string name="button_permanent_text">Permanent DeSprintiFiCation</string>
+</resources>
