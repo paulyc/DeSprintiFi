@@ -1,14 +1,19 @@
 package io.github.paulyc.desprintifi
 
+import android.Manifest
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    val dsfmgr = DeSprintiFiCationManager()
+    val PERMISSIONS_MODIFY_STATE = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +25,7 @@ class MainActivity : AppCompatActivity() {
                 .setAction("Action", null).show()
         }
 
-        DeSprintiFiCationManager()
+        requestPermissions(arrayOf(Manifest.permission.MODIFY_PHONE_STATE), PERMISSIONS_MODIFY_STATE)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -37,5 +42,15 @@ class MainActivity : AppCompatActivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    fun deSprintiFiNow(view: View) {
+        //requestPermissions(arrayOf(Manifest.permission.MODIFY_PHONE_STATE), PERMISSIONS_MODIFY_STATE)
+        dsfmgr.deSprintiFiNow(applicationContext)
+    }
+
+    fun togglePermanentDeSprintiFiCation(view: View) {
+        //requestPermissions(arrayOf(Manifest.permission.MODIFY_PHONE_STATE), PERMISSIONS_MODIFY_STATE)
+        dsfmgr.togglePermanent(applicationContext)
     }
 }
