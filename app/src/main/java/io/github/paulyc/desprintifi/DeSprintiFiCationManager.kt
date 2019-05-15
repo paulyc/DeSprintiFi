@@ -28,6 +28,8 @@ class DeSprintiFiCationManager {
     fun useTMo(ctx: Context, persist: Boolean) {
         val tm = ctx.getSystemService(TelephonyManager::class.java)
         //val currentNetOp = tm.networkOperator
+        // allows this when called from system but i think it needs to
+        // switch subscriptions or reset the connection as well
         tm.setNetworkSelectionModeManual(TMoPLMNId, persist)
     }
 
